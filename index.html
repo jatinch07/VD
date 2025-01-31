@@ -8,20 +8,28 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #ffe6f2;
+            background-color: #ffccdc;
             margin: 0;
             padding: 20px;
+            overflow: hidden;
         }
         .container {
             max-width: 600px;
             margin: auto;
             background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         h1 {
-            color: #ff4d79;
+            color: #ff4081;
+        }
+        .valentine-box {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
         .btn {
             padding: 10px 20px;
@@ -32,44 +40,77 @@
             border-radius: 5px;
         }
         .yes {
-            background-color: #ff4d79;
+            background-color: #ff4081;
             color: white;
         }
         .no {
             background-color: #ddd;
+            position: absolute;
         }
         .hidden {
             display: none;
         }
+        @keyframes rose-shower {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        .rose {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            animation: rose-shower 3s linear infinite;
+        }
     </style>
 </head>
 <body>
+    <h1>Happy Valentine's Day! 💖</h1>
     <div class="container">
-        <h1>Will You Be My Valentine? 💖</h1>
-        <p>Here are some reasons why you should say yes:</p>
-        <ul>
-            <li>We've been together for 5 amazing years! 🥰</li>
-            <li>You're the most beautiful and intelligent person I know. 😍</li>
-            <li>I promise to make this Valentine's Day super special! 💕</li>
-        </ul>
-        <img id="cuteImg" src="https://source.unsplash.com/300x200/?love,couple" alt="Cute Image">
-        <br>
+        <div class="valentine-box">
+            <h2>Why You Should Say Yes To Me 💘</h2>
+            <ul>
+                <li>We've been together for 5 amazing years! 🥰</li>
+                <li>You're the most beautiful and intelligent person I know. 😍</li>
+                <li>I promise to make this Valentine's Day super special! 💕</li>
+                <li>I'll always support and love you unconditionally. ❤️</li>
+                <li>Because we are meant to be together forever! 💞</li>
+            </ul>
+        </div>
+        <h2>Will You Be My Valentine? 💖</h2>
         <button class="btn yes" onclick="sayYes()">Yes ❤️</button>
-        <button class="btn no" onclick="sayNo()">No 😢</button>
+        <button class="btn no" onclick="sayNo()" id="noButton" style="left: 50%;">No 😢</button>
         <p id="message" class="hidden">Pleaseee! 🥺</p>
     </div>
     <script>
         let noClicks = 0;
         function sayNo() {
             noClicks++;
-            document.getElementById("message").classList.remove("hidden");
-            document.getElementById("cuteImg").src = `https://source.unsplash.com/300x200/?cute,love&random=${noClicks}`;
-            if (noClicks >= 3) {
-                alert("You can't say no! 😜");
+            let noBtn = document.getElementById("noButton");
+            let message = document.getElementById("message");
+            
+            if (noClicks === 1) {
+                message.innerHTML = "Pleaseee! 🥺";
+            } else if (noClicks === 2) {
+                message.innerHTML = "You will not regret it! 😘";
+            } else if (noClicks >= 5) {
+                noBtn.style.display = "none";
+                return;
             }
+            
+            message.classList.remove("hidden");
+            let offset = noClicks * 30;
+            noBtn.style.transform = `translate(${offset}px, ${offset}px)`;
         }
+        
         function sayYes() {
-            alert("Yay! I love you! 💖");
+            document.body.innerHTML += `<h2 style='color: #ff4081;'>Yayyy! I love you 💖</h2>`;
+            for (let i = 0; i < 30; i++) {
+                let rose = document.createElement("img");
+                rose.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rose_icon.svg/1024px-Rose_icon.svg.png";
+                rose.className = "rose";
+                rose.style.left = Math.random() * window.innerWidth + "px";
+                rose.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                document.body.appendChild(rose);
+            }
         }
     </script>
 </body>
