@@ -69,7 +69,7 @@
     ];
   
     noButton.addEventListener('click', function() {
-      if (noClickCount < 5) {
+      if (noClickCount < 7) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -78,9 +78,17 @@
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..."][noClickCount];
-        }
+        noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry...", "yes :)", "ok"][noClickCount];
+      }
+      if (noButton.textContent=="yes :)") {
+          noButton.style.backgroundColor = "rgb(34 197 94)";
+          noButton.style.hover = "rgb(74 222 128)";
+       } // add condition here
+      if (noButton.textContent=="ok") {
+          imageDisplay.src = './images/image7.gif'; // Change to image7.gif
+          valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
+          responseButtons.style.display = 'none'; // Hide both buttons
+          confetti();
       }
     });
   
