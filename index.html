@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff4d79;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #ff4d79;
+            color: white;
+        }
+        .no {
+            background-color: #ddd;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine? 💖</h1>
+        <p>Here are some reasons why you should say yes:</p>
+        <ul>
+            <li>We've been together for 5 amazing years! 🥰</li>
+            <li>You're the most beautiful and intelligent person I know. 😍</li>
+            <li>I promise to make this Valentine's Day super special! 💕</li>
+        </ul>
+        <img id="cuteImg" src="https://source.unsplash.com/300x200/?love,couple" alt="Cute Image">
+        <br>
+        <button class="btn yes" onclick="sayYes()">Yes ❤️</button>
+        <button class="btn no" onclick="sayNo()">No 😢</button>
+        <p id="message" class="hidden">Pleaseee! 🥺</p>
+    </div>
+    <script>
+        let noClicks = 0;
+        function sayNo() {
+            noClicks++;
+            document.getElementById("message").classList.remove("hidden");
+            document.getElementById("cuteImg").src = `https://source.unsplash.com/300x200/?cute,love&random=${noClicks}`;
+            if (noClicks >= 3) {
+                alert("You can't say no! 😜");
+            }
+        }
+        function sayYes() {
+            alert("Yay! I love you! 💖");
+        }
+    </script>
+</body>
+</html>
