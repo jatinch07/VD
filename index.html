@@ -10,7 +10,19 @@
     .gradient-background {
       background: url('./images/bg1.webp') no-repeat center center;
       background-size: cover;
+    } 
+    @keyframes blurEffect {
+      0%, 100% {
+        filter: blur(1px);
+      }
+      50% {
+        filter: blur(3px);
+      }
     }
+    
+    .top-left, .bottom-right {
+      animation: blurEffect 3s ease-in-out infinite;
+    }    
 
     .bounce2 {
       animation: bounce2 2s ease infinite;
