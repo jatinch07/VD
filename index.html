@@ -7,8 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
-      background: rgb(255, 208, 229);
-      background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
+      background: url('./images/bg1.webp') no-repeat center center;
+      background-size: cover;
     }
 
     .bounce2 {
@@ -26,9 +26,26 @@
         transform: translateY(-10px);
       }
     }
+
+    .top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 100px;
+    }
   </style>
 </head>
 <body class="gradient-background">
+  <img src="./images/tl.svg" alt="Decorative SVG" class="top-left">
+  <img src="./images/br.svg" alt="Decorative SVG" class="bottom-right">
+  
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
@@ -55,9 +72,9 @@
     const responseButtons = document.getElementById('responseButtons');
   
     let noClickCount = 0;
-    let buttonHeight = 48; // Starting height in pixels
+    let buttonHeight = 48;
     let buttonWidth = 80;
-    let fontSize = 20; // Starting font size in pixels
+    let fontSize = 20;
     const imagePaths = [
       "./images/image1.gif",
       "./images/image2.gif",
@@ -72,31 +89,31 @@
       if (noClickCount < 7) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
+        buttonHeight += 35;
         buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
-        yesButton.style.height = `${buttonHeight}px`; // Update button height
+        fontSize += 25;
+        yesButton.style.height = `${buttonHeight}px`;
         yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        yesButton.style.fontSize = `${fontSize}px`;
         noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry...", "yes :)", "ok"][noClickCount];
       }
       if (noButton.textContent=="yes :)") {
           noButton.style.backgroundColor = "rgb(34 197 94)";
           noButton.style.hover = "rgb(74 222 128)";
-       } // add condition here
+      }
       if (noButton.textContent=="ok") {
-          imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-          valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
-          responseButtons.style.display = 'none'; // Hide both buttons
+          imageDisplay.src = './images/image7.gif';
+          valentineQuestion.textContent = "Yayyy!! :3";
+          responseButtons.style.display = 'none';
           confetti();
       }
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
-      responseButtons.style.display = 'none'; // Hide both buttons
-      confetti(); // Trigger confetti animation
+      imageDisplay.src = './images/image7.gif';
+      valentineQuestion.textContent = "Yayyy!! :3";
+      responseButtons.style.display = 'none';
+      confetti();
     });
   </script>  
 </body>
