@@ -89,34 +89,25 @@
     let buttonWidth = 80;
     let fontSize = 20;
     const imagePaths = [
-      "./images/image1.gif",
-      "./images/image2.gif",
-      "./images/image3.gif",
-      "./images/image4.gif",
-      "./images/image5.gif",
-      "./images/image6.gif",
-      "./images/image7.gif",
-      "./images/imagess1.gif"
+      "./images/images1.gif",
+      "./images/images2.gif",
+      "./images/images3.gif",
+      "./images/images4.gif",
+      "./images/images5.gif",
+      "./images/images6.gif",
+      "./images/images7.gif",
+      "./images/images8.gif",
+      "./images/images9.gif",
+      "./images/imagesf.gif"
     ];
     const textPaths = [
       "No", "Are you sure?", "Really Sure?", "Think Again!", "Pookie please", "Don't do this to me :(", "You won't regret this!", 
-      "Give it another thought!", "Are you absolutely certain?", "This could be a mistake!", "Have a heart!", "You're breaking my heart", 
-      "Won't you reconsider", "Is that your final answer?", "Change of heart?", "Plss..I'm gonna cry", "yes :)", "ok"
+      "Give it another thought!", "Are you absolutely certain?", "This could be a mistake!", "Have a heart!",  
+      "Won't you reconsider", "You're breaking my heart", "Is that your final answer?", "Change of heart?", "Plss..I'm gonna cry", "yes :)", "ok"
     ];
   
     noButton.addEventListener('click', function() {
-      if (noClickCount < 2) {
-        noClickCount++;
-        imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35;
-        buttonWidth += 35;
-        fontSize += 25;
-        yesButton.style.height = `${buttonHeight}px`;
-        yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`;
-        noButton.textContent = textPaths[noClickCount];
-      }
-      if (noClickCount < 14 && noClickCount >1) {
+      if (noClickCount < 16) {
         noClickCount++;
         imageDisplay.src = imagePaths[Math.floor(noClickCount/2)];
         buttonHeight += 35;
@@ -127,7 +118,7 @@
         yesButton.style.fontSize = `${fontSize}px`;
         noButton.textContent = textPaths[noClickCount];
       }
-      if (noClickCount > 13) {
+      else if (noClickCount > 15) {
         noClickCount++;
         imageDisplay.src = imagePaths[7];
         buttonHeight += 35;
