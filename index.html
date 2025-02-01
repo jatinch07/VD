@@ -95,7 +95,8 @@
       "./images/image4.gif",
       "./images/image5.gif",
       "./images/image6.gif",
-      "./images/image7.gif"
+      "./images/image7.gif",
+      ./images/imagess1.gif
     ];
     const textPaths = [
       "No", "Are you sure?", "Really Sure?", "Think Again!", "Pookie please", "Don't do this to me :(", "You won't regret this!", 
@@ -118,6 +119,17 @@
       if (noClickCount < 14 && noClickCount >1) {
         noClickCount++;
         imageDisplay.src = imagePaths[Math.floor(noClickCount/2)];
+        buttonHeight += 35;
+        buttonWidth += 35;
+        fontSize += 25;
+        yesButton.style.height = `${buttonHeight}px`;
+        yesButton.style.width = `${buttonWidth}px`;
+        yesButton.style.fontSize = `${fontSize}px`;
+        noButton.textContent = textPaths[noClickCount];
+      }
+      if (noClickCount > 13) {
+        noClickCount++;
+        imageDisplay.src = imagePaths[7];
         buttonHeight += 35;
         buttonWidth += 35;
         fontSize += 25;
