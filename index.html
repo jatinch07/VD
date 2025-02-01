@@ -61,7 +61,7 @@
   
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
-      <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <img id="imageDisplay" src="./images/gifs/images1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
       <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
@@ -89,16 +89,16 @@
     let buttonWidth = 80;
     let fontSize = 20;
     const imagePaths = [
-      "./images/images1.gif",
-      "./images/images2.gif",
-      "./images/images3.gif",
-      "./images/images4.gif",
-      "./images/images5.gif",
-      "./images/images6.gif",
-      "./images/images7.gif",
-      "./images/images8.gif",
-      "./images/images9.gif",
-      "./images/imagesf.gif"
+      "./images/gifs/images1.gif",
+      "./images/gifs/images2.gif",
+      "./images/gifs/images3.gif",
+      "./images/gifs/images4.gif",
+      "./images/gifs/images5.gif",
+      "./images/gifs/images6.gif",
+      "./images/gifs/images7.gif",
+      "./images/gifs/images8.gif",
+      "./images/gifs/images9.gif",
+      "./images/gifs/imagesf.gif"
     ];
     const textPaths = [
       "No", "Are you sure?", "Really Sure?", "Think Again!", "Pookie please", "Don't do this to me :(", "You won't regret this!", 
@@ -134,7 +134,7 @@
           noButton.style.hover = "rgb(74 222 128)";
       }
       if (noButton.textContent=="ok") {
-          imageDisplay.src = './images/image8.gif';
+          imageDisplay.src = './images/gifs/imagesf.gif';
           valentineQuestion.textContent = "Yayyy!! :3";
           responseButtons.style.display = 'none';
           confetti();
@@ -142,7 +142,7 @@
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image8.gif';
+      imageDisplay.src = './images/gifs/imagesf.gif';
       valentineQuestion.textContent = "Yayyyy!!! <3";
       responseButtons.style.display = 'none';
       confetti();
